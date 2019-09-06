@@ -1,0 +1,195 @@
+﻿body {
+    background: #303030;
+    color:#ddffff;
+    text-shadow: 0px 0px 4px rgba(15, 15, 15, 1);
+}
+
+input[type="range"] {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    width: 80px;
+    height: 7px;
+    border-radius: 5px;
+    border: 2px solid #232323;
+    box-shadow: inset 0 0 4px #222222;
+    background: #383838;
+    -webkit-appearance: none; /*Fix para Chrome*/
+}
+
+input[type='range']::-moz-range-thumb {
+    background: rgba(44,191,248,1);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+    border: 6px solid #222222;
+    border-radius: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type='range']::-moz-range-track {
+    border-radius: 5px;
+    background: transparent;
+    height: 10px;
+    border: none;
+}
+
+    /* Fix: versión para chrome*/
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: rgba(44,191,248,1);
+    width: 20px;
+    height: 20px;
+    border: 6px solid #222222;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+@keyframes animarfondo {
+    from { background-position: 0px 0px; }
+	    to { background-position: 100% 100%; }
+}
+
+.mplayer_body {
+    width: 800px;
+    height:500px;
+    margin: 50px auto;
+    padding:10px;
+    position:relative;
+    background: url('img/background.jpg') no-repeat scroll;
+    background-position:0px 0px;
+    background-size:130%;
+    box-shadow: 0px 0px 10px rgba(15, 15, 15, 1), inset 0 0 180px rgba(45,45,45,0.9);
+}
+
+    .mplayer_body div {
+        display:inline-block;
+        vertical-align:top;
+        height:auto;
+    }
+
+.mplayer_disc {
+    padding:20px;
+    text-align:center;
+    width:47%;
+}
+
+    .mplayer_disc img {
+        display: block;
+        width: 270px;
+        height: 270px;
+        margin: 0 auto;
+        box-shadow: 0px 0px 10px rgba(15, 15, 15, 1);
+    }
+
+#trackinfo {
+    margin-top:18px;
+    list-style: none;
+    padding: 0;
+}
+
+    #trackinfo li {
+        font-size: 17px;
+        text-shadow: 0px 0px 4px rgba(15, 15, 15, 1);
+        color: #fff;
+        text-transform:lowercase;     
+    }
+
+        #trackinfo li:first-letter {
+            text-transform:uppercase;     
+        }
+
+        #trackinfo li:first-child {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+.mplayer_filelist {
+    width: 47%;
+    overflow: hidden;
+    padding-top:7px;
+    height: 450px !important;
+}
+
+    .mplayer_filelist ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .mplayer_filelist ul li {
+            line-height: 30px;
+            width:100%;
+            display:inline-block;
+            vertical-align:top;
+            text-align:right;
+            font-size: 12px;
+            text-shadow: 0px 0px 4px rgba(15, 15, 15, 1);
+        }
+            .mplayer_filelist ul li:hover {
+                transition:all .8s ease-out;
+                color:#fff;
+                text-shadow: 0px 0px 9px rgba(5,5,5,1); 
+                cursor: pointer;
+            }
+
+.mplayer_trackcontrol {
+    width:100%;
+    border-radius:4px;
+    background: rgba(45, 45, 45, 0.7);
+    box-shadow: 0px 0px 2px rgba(15, 15, 15, 1);
+}
+
+    .mplayer_trackcontrol .btn-group {
+        width:40%;
+    }
+        .mplayer_trackcontrol .btn-group a {
+            color: #ddffff;
+        }
+
+            .mplayer_trackcontrol .btn-group a label {
+                cursor:pointer;
+            }
+
+.mplayer_options {
+    width: 53%;
+    margin-left: 20px;
+}
+
+    .mplayer_options span, .mplayer_options #barra_progreso {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top:7px;
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+    .mplayer_options span {
+        width:11%;
+        font-size: 12px;
+        color: white;
+        text-shadow: 0px 0px 4px rgba(15, 15, 15, 1);
+    }
+
+    .mplayer_options #barra_progreso {
+        width:76%;
+    }
+
+.mplayer_volume {
+    background: rgba(45, 45, 45, 0.7);
+    box-shadow: 0px 0px 10px rgba(15, 15, 15, 1);
+    padding:5px;
+    visibility:hidden;
+    position:absolute;
+    z-index:6;
+    bottom:15.5%;
+    left:31.7%;
+    transform: rotate(-90deg);
+}
+
+.modal-body {
+    color: #bbb;
+}

@@ -1,0 +1,138 @@
+﻿
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600" rel="stylesheet" type="text/css" />
+        <link href="css/mplayer.css" rel="stylesheet" type="text/css" />
+        <title>Savadas Music Player</title>
+    </head>
+    <body role="document">         
+        <div class="container">                  
+            <div class="row">
+                <div class="col-md-12">                                      
+                    <section class="mplayer_body" >
+                        <div class="mplayer_disc">
+                            <img alt="" src="css/img/vinyldisc.jpg" />
+                            <ul id="trackinfo"></ul>
+                        </div>                        
+
+                        <div class="mplayer_filelist"></div>
+
+                        <div class="mplayer_trackcontrol">
+                            <div class="btn-group btn-group-justified">
+                                <a href="#" class="btn btn-sm" id="anterior" data-toggle="tooltip" title="Anterior"><label class="glyphicon glyphicon-step-backward"></label> </a>
+                                <a href="#" class="btn btn-sm" id="reproducir" data-toggle="tooltip" title="Reproducción"><label class="glyphicon glyphicon-play"></label></a>
+                                <a href="#" class="btn btn-sm" id="detener" data-toggle="tooltip" title="Detener"><label class="glyphicon glyphicon-stop"></label></a>
+                                <a href="#" class="btn btn-sm" id="siguiente" data-toggle="tooltip" title="Siguiente"><label class="glyphicon glyphicon-step-forward"></label></a>
+                                <a href="#" class="btn btn-sm" id="playlist" data-toggle="tooltip" title="Playlist"><label class="glyphicon glyphicon-music"></label></a>
+                                <a href="#" class="btn btn-sm" id="equalization" data-toggle="tooltip" title="Ecualizador"><label class="glyphicon glyphicon-equalizer"></label></a>
+                                <a href="#" class="btn btn-sm" id="volumen" data-toggle="tooltip" title="Volumen"><label class="glyphicon glyphicon-volume-up"></label></a>
+                            </div>
+                                                      
+                            <div class="mplayer_volume">
+                                <input type="range" min="0" value="0.5" max="1" step="0.01" id="main_volume" />
+                            </div>
+
+                            <div class="mplayer_options">
+                                <span id="repro_timming">00:00</span>
+                                <input type="range" min="0" value="0" max="0" step="1" id="barra_progreso" />
+                                <span id="total_timming">00:00</span>
+                            </div>
+                        </div>
+                    </section>                    
+                </div>    
+            </div>      
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center text-primary">
+					     &copy; Savadas
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div id="modal_show_eq" class="fade in modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Ecualizador</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hecho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal_show_err" class="fade in modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Lo sentimos..</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="err_message" class="text-primary"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Vale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal_show_pl" class="fade in modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Listas de reproducción</h4>
+                    </div>
+                    <div id="playlist_content" class="modal-body">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Lista: </label>
+                                    <div class="col-sm-6">
+                                        <select id="playlist_select" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Resumen: </label>
+                                    <div class="col-sm-6">                                        
+                                        <p id="playlist_descr" class="active">Escoge una lista de reproducción para ver más detalles.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Opciones: </label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input id="autostart" type="checkbox" />
+                                                Reproducir de inmediato
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button id="change_playlist" type="button" class="btn btn-primary" data-dismiss="modal">Cambiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/MusicPlayer/tracklistmanager.js"></script>
+    <script src="js/MusicPlayer/trackplayer.js"></script>
+    <script src="js/MusicPlayer/initV2.js"></script>
+</html>
