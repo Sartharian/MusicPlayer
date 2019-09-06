@@ -1,9 +1,7 @@
-Hola a todos, Les presento mi
-<h3>Savadas MusicPlayer</h3>
-Pequeña implementación de la WebApi <a href="https://www.w3.org/TR/webaudio/" target="_black">AudioContext</a>.<br/>
-Lanzamiento de la <b>segunda</b> versión.
-<br /><br />
-Novedades: 
+<h3>Resumen</h3>
+Es una app web desarrollada en Javascript que simula ser un reproductor de música, para esto implementa el WebApi <a href="https://www.w3.org/TR/webaudio/" target="_black">AudioContext</a>.<br/>
+<br />
+Además también incorpora: 
 <ul>
 <li>Ecualizador</li>
 <li>Opciones de reproducción</li>
@@ -11,11 +9,11 @@ Novedades:
 <li>Diseño renovado</li>
 </ul>
 
-Requisitos:
+Lo que necesita para funcionar es: 
 <ul>
-	<li>Jquery (1.8+)</li>
-	<li>Jquery.Nicescroll</li>
-	<li>Bootstrap 3.3.7</li>
+<li>JQuery (Ojalá 1.6+)</li>
+<li>Nicescroll (plugin de JQuery)</li>
+<li>Bootstrap (3.3.7)</li>
+<li>Diseño renovado</li>
 </ul>
 <br />
-<b>Nota</b>: Esta versión reemplaza a la que ya está en este repositorio.
