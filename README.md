@@ -1,13 +1,14 @@
-<h3>Resumen</h3>
-Esto es el front-end de una app web desarrollada en Javascript que simula ser un reproductor de música, para esto implementa el WebApi <a href="https://www.w3.org/TR/webaudio/" target="_black">AudioContext</a>.<br/>
+# Léeme - MUsicPlayer
+## Descripción
+Esto es sólo el **front-end** de una app web desarrollada en Javascript que simula ser un reproductor de música, para esto implementa el WebApi [AudioContext](https://www.w3.org/TR/webaudio/).
 <hr />
-<h3>Funcionalidades:</h3>
+## Funcionalidades:
 <ul>
 <li>Reproducción: <b>Listo</b></li>
-<li>Ecualizaciór: <b>Listo</b></li>
+<li>Ecualización: <b>Listo</b></li>
 <li>Selector de Playlist: <b>Listo</b></li>
 <li>Opciones de reproducción - En progreso</li>
-</ul><br />
+</ul>
 <hr />
 <h3>Dependencias:</h3>
 <ul>
