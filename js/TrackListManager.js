@@ -2,11 +2,7 @@
 	Controlador Front-end para el núcleo de reproducción. 
 	
 	Practicamente lo que hace es abstraer el funcionamiento de 
-	la reproducción por sobre la lista de medios.
-	
-	Aunque no es taan necesario, implementé un Singleton ( https://es.wikipedia.org/wiki/Singleton )
-	para evitar manipulación inadecuada desde una consola javascript.
-	
+	la reproducción por sobre la lista de medios.		
  */
 
 var Tracklistmanager = (function () {
@@ -25,8 +21,7 @@ var Tracklistmanager = (function () {
         "application/json",
         "nombre: ",
         "descripcion: ",
-        "archivos: ",
-        ""
+        "archivos: "
     ];
 
     (function () {
@@ -64,11 +59,11 @@ var Tracklistmanager = (function () {
             if (this.status === 200 && this.readyState === 4) {
                 ProcessTrackList(request.responseText, success, fail);
             } else {
-                fail.call(this, dialogs[1]);
+                return fail.call(this, dialogs[1]);
             }
         };
         request.onerror = function (result) {
-            fail.call(this, dialogs[2] + "  " + result.statusCode);
+            return fail.call(this, dialogs[2] + "  " + result.statusCode);
         };
         request.send(JSON.stringify({ parameter : sug_list }));
     }
@@ -86,14 +81,11 @@ var Tracklistmanager = (function () {
             // etc...
             return success.call(this, playlist);
         }
-
         // Ejemplo: recibir sólo archivos
         if (response.playlist_media) {
             response = JSON.parse(response.playlist_media);
-
             if (response.length === 0) {
                 return fail.call(this, dialogs[3]);
-
             }
             // Siempre es bueno validar los indices de lo que se va a recibir, este es un ejemplo
             var _tempcheck = 0;
@@ -118,7 +110,7 @@ var Tracklistmanager = (function () {
                     }));
                 }
                 //Podemos hacer algo con esto en la vista
-                success.call(this, listado);
+                return success.call(this, listado);
             }
         }
     }
