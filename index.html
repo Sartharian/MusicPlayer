@@ -12,13 +12,13 @@
         <div class="container">                  
             <div class="row">
                 <div class="col-md-12">                                      
-                    <div class="mplayer_body" >
+                    <div class="mplayer_body">
                         <section class="mplayer_leftside">
                             <img alt="algo" src="#" />
                             <hr />
                             <h5>Titulo del tema</h5>
                             <h6>Artista compositor</h6>
-                        </section>                        
+                        </section>
 
                         <section class="mplayer_rightside">
                             <div class="mplayer_display">
@@ -31,36 +31,44 @@
                             <ul class="mplayer_filelist"></ul>
                         </section>
 
-
-
-                        <div class="mplayer_trackcontrol">
-                            <div class="btn-group btn-group-justified">
-                                <a href="#" class="btn btn-sm" id="anterior" data-toggle="tooltip" title="Anterior"><label class="glyphicon glyphicon-step-backward"></label> </a>
-                                <a href="#" class="btn btn-sm" id="reproducir" data-toggle="tooltip" title="Reproducción"><label class="glyphicon glyphicon-play"></label></a>
-                                <a href="#" class="btn btn-sm" id="detener" data-toggle="tooltip" title="Detener"><label class="glyphicon glyphicon-stop"></label></a>
-                                <a href="#" class="btn btn-sm" id="siguiente" data-toggle="tooltip" title="Siguiente"><label class="glyphicon glyphicon-step-forward"></label></a>
-                                <a href="#" class="btn btn-sm" id="playlist" data-toggle="tooltip" title="Playlist"><label class="glyphicon glyphicon-music"></label></a>
-                                <a href="#" class="btn btn-sm" id="equalization" data-toggle="tooltip" title="Ecualizador"><label class="glyphicon glyphicon-equalizer"></label></a>
-                                <a href="#" class="btn btn-sm" id="volumen" data-toggle="tooltip" title="Volumen"><label class="glyphicon glyphicon-volume-up"></label></a>
-                            </div>
-                                                      
-                            <div class="mplayer_volume">
-                                <input type="range" min="0" value="0.5" max="1" step="0.01" id="main_volume" />
-                            </div>
-
+                        <section class="mplayer_areabuttons">
                             <div class="mplayer_options">
                                 <span id="repro_timming">00:00</span>
                                 <input type="range" min="0" value="0" max="0" step="1" id="barra_progreso" />
                                 <span id="total_timming">00:00</span>
                             </div>
-                        </div>
+                            <div class="mplayer_controls">
+                                <span id="anterior" title="Anterior">
+                                    <i class="glyphicon glyphicon-step-backward"></i>
+                                </span>
+                                <span id="reproducir" title="Reproducción">
+                                    <i class="glyphicon glyphicon-play"></i>
+                                </span>
+                                <span id="siguiente" title="Siguiente">
+                                    <i class="glyphicon glyphicon-step-forward"></i>
+                                </span>
+                                <span id="repro_handlepl">
+                                    <i class="glyphicon glyphicon-random"></i>
+                                </span>
+                                <span id="repro_volume" title="Volumen">
+                                    <i class="glyphicon glyphicon-volume-up"></i>
+                                    <input type="range" min="0" value="0.5" max="1" step="0.01" id="main_volume" />
+                                </span>
+                                <span id="repro_equalizer" title="Ecualizador">
+                                    <i class="glyphicon glyphicon-equalizer"></i>
+                                </span>
+                                <span id="repro_playlist" title="Listas de reproduccion">
+                                    <i class="glyphicon glyphicon-list"></i>
+                                </span>
+                            </div>
+                        </section>
                     </div>                    
                 </div>    
             </div>      
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center text-primary">
-					     &copy; Savadas
+					     <i class="glyphicon glyphicon-copyright-mark"></i> Sartharian
                     </div>
                 </div>
             </div>    
