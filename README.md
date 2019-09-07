@@ -1,7 +1,9 @@
 
 ## Descripción
 **Front-End** de una app web desarrollada en Javascript que simula ser un __reproductor de música__.<br /> 
-Implementa el WebApi [AudioContext](https://www.w3.org/TR/webaudio/). y para la interacción con el servidor usa [XMLHTTPRequest](https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest). 
+Implementa el WebApi [AudioContext](https://www.w3.org/TR/webaudio/). <br />
+Para la interacción con el servidor usa [XMLHTTPRequest](https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest). <br />
+Patrón de diseño (sólo para las librerías) [Singleton](https://es.wikipedia.org/wiki/Singleton ) <br />
 
 ## Funcionalidades:
 <ul>
