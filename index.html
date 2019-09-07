@@ -6,19 +6,32 @@
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600" rel="stylesheet" type="text/css" />
         <link href="css/mplayer.css" rel="stylesheet" type="text/css" />
-        <title>Savadas Music Player</title>
+        <title>Sartharian Music Player</title>
     </head>
     <body role="document">         
         <div class="container">                  
             <div class="row">
                 <div class="col-md-12">                                      
-                    <section class="mplayer_body" >
-                        <div class="mplayer_disc">
-                            <img alt="" src="css/img/vinyldisc.jpg" />
-                            <ul id="trackinfo"></ul>
-                        </div>                        
+                    <div class="mplayer_body" >
+                        <section class="mplayer_leftside">
+                            <img alt="algo" src="#" />
+                            <hr />
+                            <h5>Titulo del tema</h5>
+                            <h6>Artista compositor</h6>
+                        </section>                        
 
-                        <div class="mplayer_filelist"></div>
+                        <section class="mplayer_rightside">
+                            <div class="mplayer_display">
+                                <ul id="trackinfo">
+                                    <li>Titulo playlist</li>
+                                    <li>Descripcion playlist</li>
+                                    <li>Total archivos</li>
+                                </ul>
+                            </div>
+                            <ul class="mplayer_filelist"></ul>
+                        </section>
+
+
 
                         <div class="mplayer_trackcontrol">
                             <div class="btn-group btn-group-justified">
@@ -41,7 +54,7 @@
                                 <span id="total_timming">00:00</span>
                             </div>
                         </div>
-                    </section>                    
+                    </div>                    
                 </div>    
             </div>      
             <div class="row">
