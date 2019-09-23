@@ -69,10 +69,9 @@ var Tracklistmanager = (function () {
     }
 
     function ProcessTrackList(json_list, success, fail) {
-        //Parsear responseText
+        // Este metodo recibe un string tipeado como JSON
         var response = JSON.parse(json_list);
 
-        //Ejemplo: recibir info de la playlist
         if (response.playlist_info) {
             var playlist = JSON.parse(elementos.playlist_info);
             console.log(dialogs[7] + playlist.nombre);
