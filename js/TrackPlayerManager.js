@@ -6,6 +6,9 @@
 	
 	Aunque no es taan necesario, implementé un Singleton ( https://es.wikipedia.org/wiki/Singleton )
 	para evitar manipulación inadecuada desde una consola javascript.
+
+    PD: Estoy abstrayendo la implementación de Jquery en esta librería para
+    que quede más limpia de entender...
  */
 
 var TrackPlayer = (function () {
@@ -23,7 +26,7 @@ var TrackPlayer = (function () {
     var eq_config = [0, 0, 0, 0, 0, 0];
     volumen.gain.value = 0.5;
 	//Obtiene o establece la instancia inicial.
-    function SavadasTrackPlayer() {
+    function TrackPlayerController() {
         if (instancia) return instancia;
         instancia = this;
     }
@@ -34,9 +37,9 @@ var TrackPlayer = (function () {
         flag_rep = false;
         tiempoactual = 0;
         audio.pause();
-        $(".mplayer_body").css({
+        /*$(".mplayer_body").css({
             animation: "none"
-        });
+        }); */
     }
 	// Inicia la carga de un medio y lo reproduce
     function StartPlaying(posicion) {
@@ -87,15 +90,15 @@ var TrackPlayer = (function () {
         Tracklistmanager.EstablecerPosicionActual(posicion);
         flag_rep = true;
         audio.play();
-        $("#reproducir").empty().append('<label class="glyphicon glyphicon-pause"></label>');
+        //$("#reproducir").empty().append('<label class="glyphicon glyphicon-pause"></label>');
         audio.addEventListener("ended", function () {
             tiempoactual = 0;
-            document.getElementById("barra_progreso").max = 0;
+            /*document.getElementById("barra_progreso").max = 0;
             document.getElementById("barra_progreso").value = 0;
             $('#barra_progreso').css('background', '#383838');
-            $("#repro_timming").empty().text("00:00");
+            $("#repro_timming").empty().text("00:00");*/
             if (Tracklistmanager.MostrarPosicionSiguiente() > Tracklistmanager.MostrarTotalElementos() - 1) {
-                $("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
+                //$("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
                 return;
             } else {
                 StartPlaying(Tracklistmanager.MostrarPosicionSiguiente());
@@ -104,17 +107,17 @@ var TrackPlayer = (function () {
         audio.addEventListener("pause", function () {
             if (flag_parado) {
                 tiempoactual = 0;
-                document.getElementById("barra_progreso").max = 0;
+                /*document.getElementById("barra_progreso").max = 0;
                 document.getElementById("barra_progreso").value = 0;
                 $('#barra_progreso').css('background', '#383838');
                 $("#repro_timming").text("00:00");
-                $("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
+                $("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');*/
                 flag_parado = false;
             }
         }, false);
         audio.addEventListener("timeupdate", function (e) {
             tiempoactual = this.currentTime;
-            document.getElementById("barra_progreso").max = this.duration;
+            /*document.getElementById("barra_progreso").max = this.duration;
             document.getElementById("barra_progreso").value = this.currentTime.toFixed(0);
             var val = ($("#barra_progreso").val() - $("#barra_progreso").attr('min')) / ($("#barra_progreso").attr('max') - $("#barra_progreso").attr('min'));
             if (val > 0) {
@@ -134,15 +137,15 @@ var TrackPlayer = (function () {
                 if (hora > 1) $('#total_timming').text(hora + ":" + minuto + ":" + segundo);
                 else $('#total_timming').text(minuto + ":" + segundo);
             };
-            CalcTotalTIme(Math.floor(this.duration));
+            CalcTotalTIme(Math.floor(this.duration));*/
         }, false);
-        if (navigator.userAgent.indexOf("Firefox") != -1) ShowLight();
+        /*if (navigator.userAgent.indexOf("Firefox") != -1) ShowLight();
         $("#trackinfo").fadeOut("fast", function () {
             $(this).empty().append("<li>" + JSON.parse(Tracklistmanager.MostrarElemento(posicion)).artista + "</li>" + "<li>" + JSON.parse(Tracklistmanager.MostrarElemento(posicion)).tema + "</li>").fadeIn("fast");
         });
         $(".mplayer_body").css({
             animation: "animarfondo 40s alternate infinite"
-        });
+        });*/
     }
 	// Este permite hacer saltos en la pista
     function StartPlayingAt(pos) {
@@ -154,7 +157,7 @@ var TrackPlayer = (function () {
             audio.play();
         }
     }
-	// Este es el efecto de luces (Exclusivo de Firefox)
+	// Este es el efecto de luces (Se pensó como exclusivo de Firefox)
     function ShowLight() {
         var source2 = audioCtx.createMediaElementSource(audio);
         var analizador = audioCtx.createAnalyser();
@@ -169,7 +172,7 @@ var TrackPlayer = (function () {
         var filtro_luces = audioCtx.createBiquadFilter();
         var analiza_luces = audioCtx.createAnalyser();
         filtro_luces.type = "lowpass";
-        filtro_luces.frequency.value = 40; // 40 Hz
+        filtro_luces.frequency.value = 40; // El filtro detecta peaks en 40 Hz
         filtro_luces.Q.value = 0;
         analiza_luces.fftSize = 32;
 
@@ -182,7 +185,7 @@ var TrackPlayer = (function () {
             requestAnimationFrame(ver_luz);
             analiza_luces.getByteFrequencyData(frequencyData2);
 
-            if (frequencyData2[0] == "255") {
+            if (frequencyData2[0] === "255") {
                 (function (window) {
                     this.intervalo = null;
                     this.inicio = 1;
@@ -190,10 +193,10 @@ var TrackPlayer = (function () {
                         if (!this.intervalo) this.intervalo = intervalo;
                         var estado = intervalo - this.intervalo;
                         var decimal = (estado / 200).toFixed(1);
-
+/*
                         if (decimal < this.inicio) document.querySelector(".mplayer_body").style.boxShadow = "0px 0px 80px rgba(44, 191, 248, " + decimal + "), inset 0 0 180px rgba(45,45,45,0.9)";
                         else document.querySelector(".mplayer_body").style.boxShadow = "0px 0px 10px rgba(15, 15, 15, 1), inset 0 0 180px rgba(45,45,45,0.9)";
-
+*/
                         if (estado < 500) window.requestAnimationFrame(punch);
                     }
                     window.requestAnimationFrame(punch);
@@ -205,17 +208,17 @@ var TrackPlayer = (function () {
     }
 	//Métodos públicos
 	//Permite devolver la instancia o establecer una si no lo hay
-    SavadasTrackPlayer.instancia = function () {
-        return instancia || new SavadasTrackPlayer();
+    TrackPlayerController.instancia = function () {
+        return instancia || new TrackPlayerController();
     }
 	//Ordena la detención total de reproducción y la maneja
-    SavadasTrackPlayer.DetenerReproduccion = function () {
+    TrackPlayerController.DetenerReproduccion = function () {
         flag_parado = true;
-        $("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
+        //$("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
         FreezePlaying();
     }
 	//Ordena la reproducción de un archivo mientras no se encuentre reproduciendo
-    SavadasTrackPlayer.ReproducirTema = function (posicion_lista) {
+    TrackPlayerController.ReproducirTema = function (posicion_lista) {
         if (flag_rep) {
             FreezePlaying();
         } else {
@@ -226,24 +229,24 @@ var TrackPlayer = (function () {
         StartPlaying(posicion_lista);
     }
 	//Comprueba publicamente si el reproductor está funcionando
-    SavadasTrackPlayer.EstaReproduciendo = function () {
+    TrackPlayerController.EstaReproduciendo = function () {
         return flag_rep;
     }
 	//Ordena de forma parcial la detencion de la reproduccion
-    SavadasTrackPlayer.PausarTema = function () {
-        $("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
+    TrackPlayerController.PausarTema = function () {
+        //$("#reproducir").empty().append('<label class="glyphicon glyphicon-play"></label>');
         FreezePlaying();
-    }
-    SavadasTrackPlayer.SaltarA = function (nuevapos) {
+    };
+    TrackPlayerController.SaltarA = function (nuevapos) {
         StartPlayingAt(nuevapos);
-    }
-    SavadasTrackPlayer.EstablecerVolumen = function (vol_value) {
+    };
+    TrackPlayerController.EstablecerVolumen = function (vol_value) {
         volumen.gain.value = vol_value;
-    }
-    SavadasTrackPlayer.EstablecerFiltro = function (filtro, valor) {
+    };
+    TrackPlayerController.EstablecerFiltro = function (filtro, valor) {
         eq_config[filtro] = valor;
         if (!eq_cache[filtro]) return;
         eq_cache[filtro].gain.value = valor;
-    }
-    return SavadasTrackPlayer;
+    };
+    return TrackPlayerController;
 }());
