@@ -4,12 +4,12 @@
 Implementa el WebApi [AudioContext](https://www.w3.org/TR/webaudio/). <br />
 Para la interacción con el servidor usa [XMLHTTPRequest](https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest). <br />
 Patrón de diseño (sólo para las librerías) [Singleton](https://es.wikipedia.org/wiki/Singleton ) <br />
-
+Todo lo anterior se apoya con el uso de **funciones anónimas** [JS](https://www.jasoft.org/Blog/post/Escribiendo-codigo-JavaScript-limpio-funciones-anonimas-auto-ejecutables.aspx)<br />
 ## Funcionalidades:
 <ul>
-<li>Reproducción: **Listo**</li>
-<li>Ecualización: **Listo**</li>
-<li>Selector de Playlist: **Listo**</li>
+<li>Reproducción: <b>Listo</b></li>
+<li>Ecualización: <b>Listo</b></li>
+<li>Selector de Playlist: <b>Listo</b></li>
 <li>Opciones de reproducción - En progreso</li>
 </ul>
 
