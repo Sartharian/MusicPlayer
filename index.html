@@ -8,10 +8,10 @@
         <link href="css/mplayer.css" rel="stylesheet" type="text/css" />
         <title>Sartharian Music Player</title>
     </head>
-    <body role="document">         
-        <div class="container">                  
+    <body role="document">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12">                                      
+                <div class="col-md-12">
                     <div class="mplayer_body">
                         <section class="mplayer_leftside">
                             <img alt="algo" src="#" />
@@ -62,33 +62,112 @@
                                 </span>
                             </div>
                         </section>
-                    </div>                    
-                </div>    
-            </div>      
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center text-primary">
-					     <i class="glyphicon glyphicon-copyright-mark"></i> Sartharian
-                    </div>
-                </div>
-            </div>    
-        </div>
-        <div id="modal_show_eq" class="fade in modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Ecualizador</h4>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hecho</button>
+                        <i class="glyphicon glyphicon-copyright-mark"></i> Sartharian
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="modal_ecualizador" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="glyphicon glyphicon-equalizer"></i>
+                            Ecualización de audio
+                        </h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Esquema usado: <label class="text-primary" s id="presetname">[Ninguno]</label>
+                        </p>
+                        <div class="mplayer_eq">
+                            <div class="eq_controls">
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />60</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />170</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />310</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />600</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />1k</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />3k</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />6k</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />12k</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />14k</span>
+                                <span><input type="range" min="-5" value="0" max="5" step="0.01" orient="vertical" />16k</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="glyphicon glyphicon-arrow-left"></i> Volver
+                        </button>
+                        <button type="button" class="btn btn-info" id="respreset">
+                            <i class="glyphicon glyphicon-refresh"></i> Limpiar
+                        </button>
+                        <button type="button" class="btn btn-primary" id="savepreset">
+                            <i class="glyphicon glyphicon-floppy-save"></i> Crear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_playlist" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="glyphicon glyphicon-list"></i>
+                            Selección de playlist
+                        </h5>
+                    </div>
+                    <div class="modal-body form-horizontal">
+                        <div class="form-group col-md-12">
+                            <h6><i class="glyphicon glyphicon-list"></i> Listas</h6>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3 text-right">
+                                Lista de reproducción
+                            </div>
+                            <div class="col-md-6">
+                                <select id="repo_playlist" class="form-control">
+                                    <option selected disabled>Seleccione...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="form-group col-md-12">
+                                <h6><i class="glyphicon glyphicon-list"></i> Detalles</h6>
+                                <p style="color:white !important;" id="plinfo"></p>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <h6><i class="glyphicon glyphicon-cog"></i> Opciones</h6>
+                                <div class="checkbox col-md-offset-2">
+                                    <label><input id="evalplay" type="checkbox"> Reproducir inmediatamente</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default">
+                                <i class="glyphicon glyphicon-arrow-left"></i>
+                                Volver
+                            </button>
+                            <button id="loadlista" type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                                Cargar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="modal_show_err" class="fade in modal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -105,54 +184,57 @@
                 </div>
             </div>
         </div>
-        <div id="modal_show_pl" class="fade in modal">
-            <div class="modal-dialog">
+
+        <div id="modal_nuevopreset" class="modal fade">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Listas de reproducción</h4>
+                        <h5 class="modal-title">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Nueva Ecualizacion
+                        </h5>
                     </div>
-                    <div id="playlist_content" class="modal-body">
+                    <div class="modal-body">
                         <form class="form-horizontal">
                             <fieldset>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Lista: </label>
-                                    <div class="col-sm-6">
-                                        <select id="playlist_select" class="form-control">
-                                        </select>
+                                    <label for="nombre" class="col-lg-2 control-label text-right">Nombre</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control" id="nombre" placeholder="Ej: Volumen alto" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Resumen: </label>
-                                    <div class="col-sm-6">                                        
-                                        <p id="playlist_descr" class="active">Escoge una lista de reproducción para ver más detalles.</p>
+                                    <label for="textArea" class="col-lg-2 control-label text-right">Comentarios</label>
+                                    <div class="col-lg-10">
+                                        <textarea class="form-control" id="comentario" rows="3" placeholder="Describe en pocas palabras de que se trata este tema"></textarea>
+                                        <span class="help-block"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Opciones: </label>
-                                    <div class="col-sm-6">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input id="autostart" type="checkbox" />
-                                                Reproducir de inmediato
-                                            </label>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button id="change_playlist" type="button" class="btn btn-primary" data-dismiss="modal">Cambiar</button>
+                        <span id="eqmsg" class="form-control-static pull-left">
+                        </span>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="glyphicon glyphicon-arrow-left"></i> Volver
+                        </button>
+                        <button id="sendpreset" type="submit" class="btn btn-primary">
+                            <i class="glyphicon glyphicon-save"></i> Listo
+                        </button>
+
                     </div>
                 </div>
             </div>
         </div>
+
     </body>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.nicescroll.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/TrackListManager.js"></script>
-    <script src="js/TrackPlayerManager.js"></script>
+    <script src="js/TrackPlayerManagerV2.js"></script>
 </html>
