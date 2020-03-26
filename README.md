@@ -20,4 +20,4 @@ Todo lo anterior se apoya con el uso de **funciones anónimas** [JS](https://www
 </ul>
 
 ## Documentación:
-Intentaré publicar todo dentro de la Wiki de este proyecto lo más pronto que pueda.
+Intentaré publicar y completar la sección Wiki de este proyecto lo más pronto que pueda.
