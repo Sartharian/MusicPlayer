@@ -1,4 +1,4 @@
-
+﻿
 ## Descripción
 **Front-End** de una app web desarrollada en Javascript que simula ser un __reproductor de música__.<br /> 
 Implementa el WebApi [AudioContext](https://www.w3.org/TR/webaudio/). <br />
@@ -10,7 +10,6 @@ Todo lo anterior se apoya con el uso de **funciones anónimas** [JS](https://www
 <li>Reproducción: <b>Listo</b></li>
 <li>Ecualización: <b>Listo</b></li>
 <li>Selector de Playlist: <b>Listo</b></li>
-<li>Opciones de reproducción - En progreso</li>
 </ul>
 
 ## Dependencias:
